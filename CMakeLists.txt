@@ -48,7 +48,7 @@ else()
   message(">>> Normal test")
   add_compile_definitions(ENABLE_TESTR ENABLE_TEST1 ENABLE_TEST1A
                            ENABLE_TEST2 ENABLE_TEST3 ENABLE_TEST4
-                           ENABLE_TEST5 ENABLE_TEST6 ENABLE_TEST7)
+                           ENABLE_TEST5 ENABLE_TEST6 ENABLE_TEST7 ENABLE_TEST10)
 endif()
 
 # add preprocessor-constant DEBUG for Debug-builds
