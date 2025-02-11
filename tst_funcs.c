@@ -14,10 +14,10 @@
 #include "ST7735_TFT.h"
 
 #if defined ENABLE_TEST9
-  #include "FreeMonoOblique12pt7b.h"
+#include "FreeMonoOblique12pt7b.h"
 #endif
 #if defined ENABLE_TEST9A
-  #include "FreeMonoOblique12pt_sub.h"
+#include "FreeMonoOblique12pt_sub.h"
 #endif
 
 #if defined(ENABLE_TEST1)
@@ -203,4 +203,35 @@ void Test9A(void) {
   TEST_DELAY5();
   fillScreen(ST7735_BLACK);
 }
+
+#endif
+
+#if defined(ENABLE_TEST10)
+
+void Test10(void) {
+  fillScreen(ST7735_BLACK);
+  setRotation(0);
+  drawText(5, 5, "rotation 0", ST7735_WHITE, ST7735_BLACK, 1);
+  drawRectWH(1, 1, tft_width - 2, tft_height - 2, ST7735_CYAN);
+  TEST_DELAY5();
+
+  fillScreen(ST7735_BLACK);
+  setRotation(1);
+  drawText(5, 5, "rotation 1", ST7735_WHITE, ST7735_BLACK, 1);
+  drawRectWH(1, 1, tft_width - 2, tft_height - 2, ST7735_CYAN);
+  TEST_DELAY5();
+
+  fillScreen(ST7735_BLACK);
+  setRotation(2);
+  drawText(5, 5, "rotation 2", ST7735_WHITE, ST7735_BLACK, 1);
+  drawRectWH(1, 1, tft_width - 2, tft_height - 2, ST7735_CYAN);
+  TEST_DELAY5();
+
+  fillScreen(ST7735_BLACK);
+  setRotation(3);
+  drawText(5, 5, "rotation 3", ST7735_WHITE, ST7735_BLACK, 1);
+  drawRectWH(1, 1, tft_width - 2, tft_height - 2, ST7735_CYAN);
+  TEST_DELAY5();
+}
+
 #endif

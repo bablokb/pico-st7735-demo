@@ -8,12 +8,12 @@
 //
 // https://github.com/bablokb/pico-st7735
 // --------------------------------------------------------------------------
-#include <stdio.h>
-#include "pico/stdlib.h"
+#include "ST7735_TFT.h"
 #include "hardware/spi.h"
 #include "hw.h"
+#include "pico/stdlib.h"
 #include "tst_funcs.h"
-#include "ST7735_TFT.h"
+#include <stdio.h>
 
 // ---------------------------------------------------------------------------
 // hardware-specific intialization
@@ -21,9 +21,9 @@
 
 void init_hw() {
   stdio_init_all();
-  spi_init(SPI_PORT, 1000000);                // SPI with 1Mhz
+  spi_init(SPI_PORT, 1000000); // SPI with 1Mhz
   gpio_set_function(SPI_RX, GPIO_FUNC_SPI);
-  gpio_set_function(SPI_SCK,GPIO_FUNC_SPI);
+  gpio_set_function(SPI_SCK, GPIO_FUNC_SPI);
   gpio_set_function(SPI_TX, GPIO_FUNC_SPI);
   tft_spi_init();
 }
@@ -79,23 +79,27 @@ int main() {
 #if defined(ENABLE_TEST9A)
   Test9A();
 #endif
+#if defined(ENABLE_TEST10)
+  Test10();
+#endif
 
 #if defined(TFT_ENABLE_TEXT)
-  #if defined(ENABLE_TESTR) && defined(TFT_ENABLE_ROTATE)
+#if defined(ENABLE_TESTR) && defined(TFT_ENABLE_ROTATE)
   for (size_t i = 0; i < 4; i++) {
     setRotation(i);
-  #endif
+#endif
     fillScreen(ST7735_BLACK);
     drawText(10, 10, "Test over!", ST7735_WHITE, ST7735_BLACK, 1);
-    drawFastHLine(0,0,80,ST7735_CYAN);
-    drawFastHLine(0,25,80,ST7735_CYAN);
-    drawFastVLine(0,0,25,ST7735_CYAN);
-    drawFastVLine(80,0,25,ST7735_CYAN);
-  #if defined(ENABLE_TESTR) && defined(TFT_ENABLE_ROTATE)
+    drawFastHLine(0, 0, 80, ST7735_CYAN);
+    drawFastHLine(0, 25, 80, ST7735_CYAN);
+    drawFastVLine(0, 0, 25, ST7735_CYAN);
+    drawFastVLine(80, 0, 25, ST7735_CYAN);
+#if defined(ENABLE_TESTR) && defined(TFT_ENABLE_ROTATE)
     TEST_DELAY1();
   }
-  #endif
 #endif
-  while(1);
+#endif
+  while (1)
+    ;
   return 0;
 }

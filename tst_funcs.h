@@ -45,6 +45,9 @@
   #if ! defined(ENABLE_TEST9A)
     #define ENABLE_TEST9A
   #endif
+  #if !defined(ENABLE_TEST10)
+    #define ENABLE_TEST10
+  #endif
 #endif
 
 #define TEST_DELAY1() sleep_ms(1000)
@@ -83,5 +86,8 @@ void Test9(void); // glyph-fonts
 #endif
 #if defined(ENABLE_TEST9A)
 void Test9A(void); // glyph-fonts (subset)
+#endif
+#if defined(ENABLE_TEST10)
+void Test10 (void); // rotations and rectangles over entire screen
 #endif
 #endif
